@@ -16,15 +16,17 @@ This template is used to setup the base for your Django RESTful API. It comes wi
   	- Swagger Documentation
 
 ## Implementing the template
-1. Setup your virtual environment
+1. Click on `Use this template` and then `Create a new repository`
+2. Clone your new repository into an empty directory
+3. Setup your virtual environment
     - Create the virtual environment; `virtualenv <virtual environment name>`
     - Activate the environment; `source <virtual environment name>/Scripts/activate`
 **NOTE:** To deactivate the environment; `deactivate`
-2. Add your environment variables with the following command - this will add SECRET_KEY and DEBUG in the .env file;
+4. Add your environment variables with the following command - this will add SECRET_KEY and DEBUG in the .env file;
     ```PowerShell
     python -c "import secrets; write_to=open('./application/.env','w',encoding='utf-8'); write_to.write('SECRET_KEY='+secrets.token_urlsafe()+'\n'+'DEBUG=True')"
     ```
-3. Setup your Database using [pgAdmin4](https://www.postgresql.org/download/);
+5. Setup your Database using [pgAdmin4](https://www.postgresql.org/download/);
     - Open the application and click on Servers
     - Select a PostgreSQL server and create a database in it
     - In your .env file, create the following variables for your database - retrieve `USER`, `HOST` and `PORT` from the server properties in the **Connection** tab
@@ -35,5 +37,5 @@ This template is used to setup the base for your Django RESTful API. It comes wi
         PORT=your_port
         NAME=your_db_name
         ```
-4. Build the application; `bash build.sh` which will install the application packages, collect static files and submit your project's default databases to the server
-5. Run your application; `python manage.py runserver`
+6. Build the application; `bash build.sh` which will install the application packages, collect static files and submit your project's default databases to the server
+7. Run your application; `python manage.py runserver`
