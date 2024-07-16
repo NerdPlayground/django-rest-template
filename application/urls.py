@@ -14,6 +14,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from decouple import config
 from django.contrib import admin
 from django.urls import path,reverse
 from django.http import HttpResponsePermanentRedirect
@@ -22,9 +24,11 @@ from drf_spectacular.views import SpectacularAPIView,SpectacularSwaggerView
 def home(request):
     return HttpResponsePermanentRedirect(reverse("swagger-ui"))
 
+ADMIN_SITE_URL="{}/".format(config('ADMIN_SITE_URL'))
+
 urlpatterns = [
     path("", home, name="home"),
-    path("admin/", admin.site.urls),
+    path(ADMIN_SITE_URL, admin.site.urls),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path("api/schema/swagger-ui/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
 ]
