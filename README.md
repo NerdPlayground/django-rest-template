@@ -22,7 +22,7 @@ This template is used to setup the base for your Django RESTful API. It comes wi
     - Create the virtual environment; `virtualenv <virtual environment name>`
     - Activate the environment; `source <virtual environment name>/Scripts/activate`
     - To deactivate the environment; `deactivate`
-4. Add your environment variables with the following command - this will add SECRET_KEY, ADIM_SITE_URL and DEBUG in the .env file;
+4. Add your environment variables with the following command - this will add `SECRET_KEY`, `ADIM_SITE_URL` and `DEBUG` in the .env file;
     ```PowerShell
     python -c "import secrets; write_to=open('./application/.env','w',encoding='utf-8'); write_to.write('SECRET_KEY={0}\nADMIN_SITE_URL={1}\nDEBUG=True\n'.format(secrets.token_urlsafe(),secrets.token_urlsafe()))"
     ```
