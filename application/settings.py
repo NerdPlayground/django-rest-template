@@ -146,10 +146,12 @@ REST_FRAMEWORK = {
 
 # Application and Schema Documentation
 
+VERSION = "1.0.0"
+
 SPECTACULAR_SETTINGS = {
     "TITLE": "Django REST Template",
     "DESCRIPTION": "Welcome to your Swagger documentation",
-    "VERSION": "1.0.0",
+    "VERSION": VERSION,
     "CONTACT":{
         "name": "Application Owner",
         "email": "example@email.com",
