@@ -3,12 +3,9 @@ This template is used to setup the base for your Django RESTful API. It comes wi
 - Packages
     - Python Decouple - which connects the environment variables to the application
     - Psycopg - PostgreSQL database adapter for Python
-    - DRF Spectacular - Sane and flexible OpenAPI 3 schema generation for Django REST framework
+    - DJ Database URL - parses the database URLs into Django's DATABASES settings format
+    - DRF Spectacular - sane and flexible OpenAPI 3 schema generation for Django REST framework
 - Configured settings for;
-    - Environment variables;
-        - SECRET_KEY
-        - ADMIN_SITE_URL
-        - DEBUG
     - Database
     - Static files
     - REST Framework
@@ -32,13 +29,10 @@ This template is used to setup the base for your Django RESTful API. It comes wi
 5. Setup your Database using [pgAdmin4](https://www.postgresql.org/download/);
     - Open the application and click on Servers
     - Select a PostgreSQL server and create a database in it
-    - In your .env file, create the following variables for your database - retrieve `USER`, `HOST` and `PORT` from the server properties in the **Connection** tab
+    - In your .env file, create the `DATABASE_URL` - retrieve `USER`, `HOST` and `PORT` from the server properties in the **Connection** tab and use the following to generate the appropriate PostgreSQL URL;
         ```
-        USER=your_db_user
-        PASSWORD=your_password
-        HOST=your_host
-        PORT=your_port
-        NAME=your_db_name
+        def get_postgres_url(USER,PASSWORD,HOST,PORT,NAME):
+            return "postgres://{}:{}@{}:{}/{}".format(quote(USER),quote(PASSWORD),HOST,PORT,quote(NAME))
         ```
 6. Build the application; `bash build.sh` which will install the application packages, collect static files and submit your project's default databases to the server
 7. Run your application; `python manage.py runserver`
