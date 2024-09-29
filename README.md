@@ -5,15 +5,18 @@ This template is used to setup the base for your Django RESTful API. It comes wi
     - Psycopg - PostgreSQL database adapter for Python
     - DRF Spectacular - Sane and flexible OpenAPI 3 schema generation for Django REST framework
 - Configured settings for;
-	- Environment variables - SECRET_KEY, ADMIN_SITE_URL and DEBUG
-  	- Database
-  	- Static files
-  	- REST Framwork
-  	- DRF Spectacular
+    - Environment variables;
+        - SECRET_KEY
+        - ADMIN_SITE_URL
+        - DEBUG
+    - Database
+    - Static files
+    - REST Framework
+    - DRF Spectacular
 - Included URLs for;
-	- Home
- 	- Schema
-  	- Swagger Documentation
+    - Home
+    - Schema
+    - Swagger Documentation
 
 ## Implementing the template
 1. Click on `Use this template` and then `Create a new repository`
