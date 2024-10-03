@@ -5,14 +5,8 @@ This template is used to setup the base for your Django RESTful API. It comes wi
     - Psycopg - PostgreSQL database adapter for Python
     - DJ Database URL - parses the database URLs into Django's DATABASES settings format
     - DRF Spectacular - sane and flexible OpenAPI 3 schema generation for Django REST framework
-- Configured settings for;
-    - Database
-    - Static files
-    - REST Framework
-    - DRF Spectacular
-- Included URLs for;
-    - Home
-    - Schema
+- Endpoints;
+    - Application schema
     - Swagger Documentation
 
 ## Implementing the template
