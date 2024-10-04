@@ -25,6 +25,7 @@ This template is used to setup the base for your Django RESTful API. It comes wi
     - Select a PostgreSQL server and create a database in it
     - In your .env file, create the `DATABASE_URL` - retrieve `USER`, `HOST` and `PORT` from the server properties in the **Connection** tab and use the following to generate the appropriate PostgreSQL URL;
         ```python
+        from urllib.parse import quote
         def get_postgres_url(USER,PASSWORD,HOST,PORT,NAME):
             return "postgres://{}:{}@{}:{}/{}".format(quote(USER),quote(PASSWORD),HOST,PORT,quote(NAME))
         ```
