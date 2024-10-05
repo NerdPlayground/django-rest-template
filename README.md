@@ -31,3 +31,9 @@ This template is used to setup the base for your Django RESTful API. It comes wi
         ```
 6. Build the application; `bash build.sh` which will install the application packages, collect static files and submit your project's default databases to the server
 7. Run your application; `python manage.py runserver`
+
+## Points to consider
+- To update the packages to there latest versions use `cat requirements.txt | cut -f1 -d= | xargs pip install -U`;
+    - `cat requirements.txt` - reads and displays the contents of `requirements.txt`
+    - `cut -f1 -d=` - splits each line with `=` as the delimiter and extracts the first field (the package)
+    - `xargs pip install -U` - passes each package as an argument to the install command
