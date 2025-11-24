@@ -2,6 +2,7 @@
 
 echo "Building project packages..."
 pip install -r requirements.txt
+pip freeze > requirements.txt
 
 echo "Add Database URL..."
 python database_setup.py
@@ -12,7 +13,3 @@ python manage.py migrate --noinput
 
 echo "Collecting static files..."
 python manage.py collectstatic --noinput
-
-echo "Updating packages..."
-cat requirements.txt | cut -f1 -d= | xargs pip install -U
-pip freeze > requirements.txt
