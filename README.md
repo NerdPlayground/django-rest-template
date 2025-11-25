@@ -20,20 +20,9 @@ This template is used to setup the base for your Django RESTful API. It comes wi
     ```PowerShell
     python -c "import secrets; write_to=open('./application/.env','w',encoding='utf-8'); write_to.write('SECRET_KEY={0}\nADMIN_SITE_URL={1}\nDEBUG=True\n'.format(secrets.token_urlsafe(),secrets.token_urlsafe()))"
     ```
-5. Setup your Database using [pgAdmin4](https://www.postgresql.org/download/);
+5. Setup your PostgreSQL Database using [pgAdmin4](https://www.postgresql.org/download/);
     - Open the application and click on Servers
     - Select a PostgreSQL server and create a database in it
-    - In your .env file, create the `DATABASE_URL` - retrieve `USER`, `HOST` and `PORT` from the server properties in the **Connection** tab and use the following to generate the appropriate PostgreSQL URL;
-        ```python
-        from urllib.parse import quote
-        def get_postgres_url(USER,PASSWORD,HOST,PORT,NAME):
-            return "postgres://{}:{}@{}:{}/{}".format(quote(USER),quote(PASSWORD),HOST,PORT,quote(NAME))
-        ```
-6. Build the application; `bash build.sh` which will install the application packages, collect static files and submit your project's default databases to the server
+    - Add the following in your .env file; `USER`, `HOST` and `PORT` (retrieved from the server properties in the **Connection** tab) along with the `NAME` and `PASSWORD` of your database
+6. Build the application; `bash build.sh` which will install the application packages, generate the database URL, submit your project's default databases to the server and collect static files
 7. Run your application; `python manage.py runserver`
-
-## Points to consider
-- To update the packages to there latest versions use `cat requirements.txt | cut -f1 -d= | xargs pip install -U`;
-    - `cat requirements.txt` - reads and displays the contents of `requirements.txt`
-    - `cut -f1 -d=` - splits each line with `=` as the delimiter and extracts the first field (the package)
-    - `xargs pip install -U` - passes each package as an argument to the install command
