@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Add Database URL..."
-python env_setup.py.py
+echo "Initialize project..."
+python env_setup.py
 
 echo "Building project packages..."
 pip install -r requirements.txt
@@ -15,4 +15,4 @@ echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
 echo "Remove setup files..."
-rm -f env_setup.py.py README.md build.sh
+rm -f env_setup.py README.md build.sh
